@@ -2,7 +2,7 @@
 
 
 
-Overview
+## Overview
 This project sets up a Jenkins pipeline to automate the creation and management of AWS infrastructure using Terraform. It integrates with GitHub for source code management and includes features for manual approval before applying changes. The pipeline also generates a Terraform plan as a text artifact.
 
 Features
