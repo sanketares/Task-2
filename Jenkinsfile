@@ -30,6 +30,23 @@ pipeline {
                 sh 'terraform show -no-color tfplan > tfplan.txt' // Optional: for human-readable output
             }
         }
+        stage('Manual Approval') {
+            steps {
+                script {
+                    def userInput = input(
+                        id: 'approval',
+                        message: 'Approve the creation of the GitHub issue?',
+                        ok: 'Approve',
+                        parameters: [
+                            string(defaultValue: '', description: 'Provide a comment or approval reason', name: 'comment', trim: true)
+                        ]
+                    )
+                    
+                    // Optional: Save user input if needed
+                    env.APPROVAL_COMMENT = userInput
+                }
+            }
+        }
         stage('Apply') {
             when {
                 expression { params.action == 'apply' }
