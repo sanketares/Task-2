@@ -9,3 +9,10 @@ resource "aws_instance" "sanket_in1111s" {
     Name = "sanket54321"
   }
 }
+resourc "aws_instance" "sanket_inssed" {
+  instance_type = "t2.micro"
+  ami           = "ami-05134c8ef96964280"
+  tags = {
+    Name = "sanket12345"
+  }
+}
