@@ -41,12 +41,22 @@ pipeline {
                         message: 'Approve the creation of the GitHub issue?',
                         ok: 'Approve',
                         parameters: [
-                            string(defaultValue: '', description: 'Provide a comment or approval reason', name: 'comment', trim: true)
+                            string(defaultValue: '', description: 'Provide a comment or approval reason', name: 'comment', trim: true),
+                            string(defaultValue: '', description: 'kanak_chandel', name: 'userId', trim: true)
                         ]
                     )
                     
+                    // Extract comment and userId from the input
+                    def comment = userInput['comment']
+                    def userId = userInput['kanak_chandel']
+                    
                     // Optional: Save user input if needed
-                    env.APPROVAL_COMMENT = userInput
+                    env.APPROVAL_COMMENT = comment
+                    env.APPROVAL_USER_ID = userId
+        
+                    // Log the user ID and comment
+                    echo "Approval received from user ID: ${userId}"
+                    echo "Approval comment: ${comment}"
                 }
             }
         }
