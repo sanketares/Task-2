@@ -1,7 +1,7 @@
 pipeline {
     agent {
         docker {
-            image 'hashicorp/terraform:latest' // Docker image with Terraform
+            image 'sanket406/terraform-docker' // Docker image with Terraform
         }
     }
 
