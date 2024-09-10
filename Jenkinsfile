@@ -1,9 +1,5 @@
 pipeline {
-    agent {
-        docker {
-            image 'sanket406/terraform-docker' // Docker image with Terraform
-        }
-    }
+    agent any
 
     parameters {
         booleanParam(name: 'autoApprove', defaultValue: false, description: 'Automatically run apply after generating plan?')
