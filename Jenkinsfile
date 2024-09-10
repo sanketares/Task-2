@@ -1,5 +1,7 @@
 pipeline {
-    agent any
+    agent docker {
+            image 'hashicorp/terraform:latest' // Docker image with Terraform
+        }
 
     parameters {
         booleanParam(name: 'autoApprove', defaultValue: false, description: 'Automatically run apply after generating plan?')
